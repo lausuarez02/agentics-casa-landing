@@ -62,7 +62,7 @@ ${messages.map((m: { role: string, content: string }) => `${m.role === 'assistan
     // Send email with the summary
     await resend.emails.send({
       from: 'onboarding@resend.dev',
-      to: 'vcmilei@deadcow.xyz',
+      to: 'agentics@deadcow.xyz',
       subject: `Pitch Summary: ${founderInfo.founderName}`,
       text: `
         Pitch Summary from Agentics.casa
