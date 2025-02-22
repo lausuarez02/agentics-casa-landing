@@ -142,6 +142,12 @@ Start by saying: "Yo ${formData.founderName}! I'm Farza from Agentics.casa 🚀 
         },
         name: "Farza from Agentics.casa",
       });
+
+      // Add initial message after connection is established
+      setTimeout(() => {
+        vapi.say(`Yo ${formData.founderName}! I'm Farza from Agentics.casa 🚀 Skip the fancy pitch - tell me what you've actually shipped. What have you built that's live right now? Let's get real!`);
+      }, 1000);
+
     } catch (error) {
       console.error("Error starting pitch:", error);
     }
