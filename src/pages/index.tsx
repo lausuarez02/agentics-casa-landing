@@ -33,11 +33,12 @@ export default function Home() {
         setIsRecording(true);
         setTranscriptMessages([]); // Reset transcript for new call
         
-        // Set 3-minute timer
+        // Set 2-minute timer
         const timer = setTimeout(() => {
-          vapiInstance.say("Time's up! Let's wrap this up. Thanks for pitching!", true);
+          vapiInstance.say("Time's up! Thanks for pitching!", true);
+          // Force stop and submit after 2 minutes
           handleStopPitch();
-        }, 180000); // 3 minutes in milliseconds
+        }, 120000); // 2 minutes in milliseconds
         
         setCallTimer(timer);
       });
@@ -450,14 +451,14 @@ Start by saying: "Yo ${formData.founderName}! I'm Farza from Agentics.casa 🚀 
                   margin: '0 auto'
                 }}
               >
-                {isRecording ? '⏹️ Stop Recording' : '🎤 Start Your Pitch'}
+                {isRecording ? '⏹️ Stop Recording & Submit' : '🎤 Start Your Pitch'}
               </button>
               <p style={{
                 opacity: 0.7,
                 fontSize: 'clamp(0.8rem, 3vw, 0.9rem)'
               }}>
                 {isRecording 
-                  ? "AI interviewer is listening to your pitch..."
+                  ? "Recording in progress... Press 'Stop Recording & Submit' when done or wait for auto-submit after 2 minutes"
                   : "Press to start recording your pitch"}
               </p>
             </div>
